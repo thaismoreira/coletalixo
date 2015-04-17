@@ -1,0 +1,25 @@
+%h1 Listing veiculos
+
+%table
+  %tr
+    %th Placa
+    %th Ano
+    %th Numero
+    %th Renavan
+    %th
+    %th
+    %th
+
+  - @veiculos.each do |veiculo|
+    %tr
+      %td= veiculo.placa
+      %td= veiculo.ano
+      %td= veiculo.numero
+      %td= veiculo.renavan
+      %td= link_to 'Show', veiculo
+      %td= link_to 'Edit', edit_veiculo_path(veiculo)
+      %td= link_to 'Destroy', veiculo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Veiculo', new_veiculo_path

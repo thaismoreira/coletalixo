@@ -1,0 +1,10 @@
+= simple_form_for(@motoristum) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :nome
+    = f.input :endereco, label:"Endereço"
+    = f.input :cpf
+
+  .form-actions
+    = f.button :submit

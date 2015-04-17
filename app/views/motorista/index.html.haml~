@@ -1,0 +1,23 @@
+%h1 Listing motorista
+
+%table
+  %tr
+    %th Nome
+    %th Endereco
+    %th Cpf
+    %th
+    %th
+    %th
+
+  - @motorista.each do |motoristum|
+    %tr
+      %td= motoristum.nome
+      %td= motoristum.endereco
+      %td= motoristum.cpf
+      %td= link_to 'Show', motoristum
+      %td= link_to 'Edit', edit_motoristum_path(motoristum)
+      %td= link_to 'Delete', motoristum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Motoristum', new_motoristum_path

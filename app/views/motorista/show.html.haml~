@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Nome:
+  = @motoristum.nome
+%p
+  %b Endereco:
+  = @motoristum.endereco
+%p
+  %b Cpf:
+  = @motoristum.cpf
+
+= link_to 'Edit', edit_motoristum_path(@motoristum)
+\|
+= link_to 'Back', motorista_path

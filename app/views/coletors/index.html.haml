@@ -1,0 +1,23 @@
+%h1 Listing coletors
+
+%table
+  %tr
+    %th Nome
+    %th Endereco
+    %th Cpf
+    %th
+    %th
+    %th
+
+  - @coletors.each do |coletor|
+    %tr
+      %td= coletor.nome
+      %td= coletor.endereco
+      %td= coletor.cpf
+      %td= link_to 'Show', coletor
+      %td= link_to 'Edit', edit_coletor_path(coletor)
+      %td= link_to 'Excluir', coletor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Coletor', new_coletor_path

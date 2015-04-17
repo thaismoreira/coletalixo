@@ -1,0 +1,47 @@
+# coding: utf-8
+require 'rails_helper'
+
+feature 'gerenciar Motoristaveiculo' do
+  before :each do
+    create(:motorista, nome: 'Luiz')
+    create(:veiculo, placa: '999999')
+  end
+
+  let(:motorista) {create(:motorista, nome: 'Boy')}
+  let(:veiculo) {create(:veiculo, placa: '999999')}
+
+  scenario 'incluir Motoristaveiculo' do # , :js => true do
+    visit new_motoristaveiculo_path
+    preencher_e_verificar_motoristaveiculo
+  end
+
+  scenario 'alterar Motoristaveiculo' do #, :js => true do
+    motoristaveiculo = FactoryGirl.create(:motoristaveiculo, motorista: motorista, veiculo: veiculo)
+
+    visit edit_motoristaveiculo_path(motoristaveiculo)
+    preencher_e_verificar_motoristaveiculo
+  end
+
+  scenario 'excluir motoristaveiculo' do #, :javascript => true do
+    motoristaveiculo = FactoryGirl.create(:motoristaveiculo, motorista: motorista, veiculo: veiculo)
+    visit motoristaveiculos_path
+    click_link 'Excluir'
+  end
+
+  def preencher_e_verificar_motoristaveiculo
+
+    select 'Luiz', from: 'Motorista'
+    select '999999', from: 'Veiculo'
+    
+
+
+    click_button 'Salvar'
+
+    expect(page).to have_content 'Motorista: Luiz'
+    expect(page).to have_content 'Veiculo: 999999'
+    
+
+
+  end
+
+end

@@ -1,0 +1,11 @@
+= simple_form_for(@veiculo) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :placa
+    = f.input :ano
+    = f.input :numero
+    = f.input :renavan
+
+  .form-actions
+    = f.button :submit

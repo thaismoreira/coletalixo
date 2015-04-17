@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Nome:
+  = @coletor.nome
+%p
+  %b Endereço:
+  = @coletor.endereco
+%p
+  %b Cpf:
+  = @coletor.cpf
+
+= link_to 'Edit', edit_coletor_path(@coletor)
+\|
+= link_to 'Back', coletors_path
